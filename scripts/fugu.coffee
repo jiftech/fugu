@@ -3,7 +3,7 @@
 #
 # Commands:
 #   hoge - respond to hoge
-#   fugu - eat fugu in various ways
+#   fugu - eat fugu in various ways(and sometimes die)
 #   :fugu: :sushi: - eat fugu's sushi
 #   :fugu: :nabe: - eat fugu nabe
 #   :fugu: :sake: - drink hire-zake
