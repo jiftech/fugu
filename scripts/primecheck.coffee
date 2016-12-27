@@ -16,7 +16,9 @@ msgNotPrime = (num) ->
 # ガバガバアルゴリズム
 primeCheck = (numStr) ->
   num = Number.parseInt numStr
-  return false if (num % 2 is 0) or (num is 1)
+  return false if num is 1
+  return true if num is 2
+  return false if num % 2 is 0
 
   sqrt = Math.sqrt num
   odds = (x for x in [3..sqrt] by 2)
