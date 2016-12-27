@@ -15,7 +15,7 @@ msgNotPrime = (num) ->
 
 # ガバガバアルゴリズム
 primeCheck = (numStr) ->
-  num = Number.parseInt numStr
+  num = parseInt numStr
   return false if num is 1
   return true if num is 2
   return false if num % 2 is 0
