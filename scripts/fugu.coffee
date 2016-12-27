@@ -21,7 +21,7 @@ msgWithEmoji = (msg, emoji) ->
 module.exports = (robot) ->
 
   tetrodotoxin = (res) ->
-    if Math.random() < 0.90
+    if Math.random() < 0.80
       msgWithEmoji res.random(yumList), "yum"
     else
       msgWithEmoji "YOU ARE DEAD", "skull_and_crossbones"
