@@ -4,6 +4,7 @@
 # Commands:
 #   hoge - respond to hoge
 #   fugu - eat fugu in various ways(and sometimes die)
+#   fugu image - return fugu's image(using Google Custom Seacrch API, 100req/day)
 #   :fugu: :sushi: - eat fugu's sushi
 #   :fugu: :nabe: - eat fugu nabe
 #   :fugu: :sake: - drink hire-zake
