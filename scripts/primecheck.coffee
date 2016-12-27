@@ -22,15 +22,15 @@ primeCheck = (numStr) ->
   true
 
 module.exports = (robot) ->
-  robot.hear /^primecheck\s*([1-9]\d{0,11})$/i, (res) ->
+  robot.hear /^primecheck\s*([1-9]\d{0,14})$/i, (res) ->
     num = res.match[1]
     if primeCheck num
       res.send "#{num} is prime!!!!!"
     else
       res.send "#{num} is not prime..."
 
-  # robot.hear /([1-9]\d{2,9})/g, (res) ->
-  #   rgxPc = /primecheck/i
-  #   return if rgxPc.test res.message.text
-  #   for num in res.match
-  #     res.send(msgPrime num) if primeCheck num
+  robot.hear /([1-9]\d{5,14})/g, (res) ->
+    rgxPc = /primecheck/i
+    return if rgxPc.test res.message.text
+    for num in res.match
+      res.send(msgPrime num) if primeCheck num
