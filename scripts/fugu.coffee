@@ -4,7 +4,7 @@
 # Commands:
 #   hoge - respond to hoge
 #   fugu - eat fugu in various ways(and sometimes die)
-#   fugu image - return fugu's image(using Google Custom Seacrch API, 100req/day)
+#   fugu image - reply with fugu's image(using Google Custom Seacrch API, 100req/day)
 #   :fugu: :sushi: - eat fugu's sushi
 #   :fugu: :nabe: - eat fugu nabe
 #   :fugu: :sake: - drink hire-zake
@@ -29,9 +29,9 @@ module.exports = (robot) ->
   robot.hear /:fugu:\s*(:sushi:|:nabe:|:stew:|:sake:)/i, (res) ->
     res.send tetrodotoxin res
 
-  robot.hear /^fugu\s*image$/i, (res) ->
+  robot.respond /image/i, (res) ->
     fuguImage res, (url) ->
-      res.send url
+      res.reply url
 
 msgWithEmoji = (msg, emoji) ->
   ":#{emoji}:  #{msg}  :#{emoji}:"
