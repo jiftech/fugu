@@ -1,17 +1,10 @@
 # Description:
-#   check whether number(3-10 digits) in conversation is prime.
-#   you can also check prime manually with "primecheck <num>".
+#   check prime number.
 # Commands:
 #   primecheck <num> - check whether num is prime.
 #
 # Author:
 #   jiftech
-
-msgPrime = (num) ->
-  "#{num} is prime!!!!!"
-
-msgNotPrime = (num) ->
-  "#{num} is not prime..."
 
 # ガバガバアルゴリズム
 primeCheck = (numStr) ->
@@ -32,12 +25,12 @@ module.exports = (robot) ->
   robot.hear /primecheck\s*([1-9]\d{0,11})/i, (res) ->
     num = res.match[1]
     if primeCheck num
-      res.send(msgPrime num)
+      res.send "#{num} is prime!!!!!"
     else
-      res.send(msgNotPrime num)
+      res.send "#{num} is not prime..."
 
-  robot.hear /([1-9]\d{2,9})/g, (res) ->
-    rgxPc = /primecheck/i
-    return if rgxPc.test res.message.text
-    for num in res.match
-      res.send(msgPrime num) if primeCheck num
+  # robot.hear /([1-9]\d{2,9})/g, (res) ->
+  #   rgxPc = /primecheck/i
+  #   return if rgxPc.test res.message.text
+  #   for num in res.match
+  #     res.send(msgPrime num) if primeCheck num
