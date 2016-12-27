@@ -29,7 +29,7 @@ primeCheck = (numStr) ->
   true
 
 module.exports = (robot) ->
-  robot.hear /primecheck\s*([1-9]\d{0,10})/i, (res) ->
+  robot.hear /primecheck\s*([1-9]\d{0,11})/i, (res) ->
     num = res.match[1]
     if primeCheck num
       res.send(msgPrime num)
