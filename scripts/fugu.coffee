@@ -3,6 +3,7 @@
 #
 # Commands:
 #   hoge - respond to hoge
+#   hoge <num> - respond to hoge <num> times
 #   fugu - eat fugu in various ways(and sometimes die)
 #   fugu image - reply with fugu's image(using Google Custom Seacrch API, 100req/day)
 #   :fugu: :sushi: - eat fugu's sushi
@@ -12,13 +13,20 @@
 # Author:
 #   jiftech
 
-hogeList = ['hoge', 'fuga', 'piyo', 'foo', 'bar', 'baz', 'afo', 'baka', 'fugu']
+hogeList = ['hoge', 'fuga', 'piyo', 'poyo', 'po', 'foo', 'bar', 'baz', 'afo', 'baka', 'fugu']
 fuguList = [':sushi:', ':nabe:', ':sake:']
 yumList  = ['yummy!', '美味しい!', '旨い!', 'ウンメェ〜']
 
 module.exports = (robot) ->
   robot.hear /^hoge$/i, (res) ->
-    res.send res.random hogeList
+    res.reply res.random hogeList
+
+  robot.hear /^hoge\s*([1-9]\d*)$/, (res) ->
+    cnt = Math.min res.match[1], 20
+    hoges = []
+    for i in [1..cnt]
+      hoges.push res.random hogeList
+    res.reply hoges.join " "
 
   robot.hear /^fugu$/i, (res) ->
     food = ":fugu: #{res.random fuguList}"

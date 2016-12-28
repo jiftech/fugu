@@ -1,7 +1,7 @@
 # Description:
 #   check prime number.
 # Commands:
-#   primecheck <num> - check whether num is prime.
+#   primecheck <num> - check whether <num> is a prime.
 #
 # Author:
 #   jiftech
@@ -9,13 +9,13 @@
 # ガバガバアルゴリズム
 primeCheck = (numStr) ->
   num = parseInt numStr
+
   return false if num is 1
-  return true if num is 2
+  return true  if num is 2
   return false if num % 2 is 0
 
   sqrt = Math.sqrt num
   odds = (x for x in [3..sqrt] by 2)
-
   for odd in odds
     return false if num % odd is 0
 
@@ -25,9 +25,9 @@ module.exports = (robot) ->
   robot.hear /^primecheck\s*([1-9]\d{0,14})$/i, (res) ->
     num = res.match[1]
     if primeCheck num
-      res.send "#{num} is prime!!!!!"
+      res.send "#{num} is a prime!!!!!"
     else
-      res.send "#{num} is not prime..."
+      res.send "#{num} is not a prime..."
 
   robot.hear /([1-9]\d{5,14})/g, (res) ->
     rgxPc = /primecheck/i
