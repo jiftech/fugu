@@ -20,8 +20,8 @@ foodList = [
 ]
 
 wordList = [
-  "baka", "hoge", "進捗", "卒論", "わかめ", "wakame", "抹茶", "華金", "金曜日", "Cygames", "Wantedly", "研究", "論文",
-  "fugu", "joke", "random", "助け", "辛い", "今日", "afo", "parrot"
+  "進捗", "卒論", "わかめ", "抹茶", "華金", "Cygames", "Wantedly", "研究", "論文",
+  "助け", "辛い", "pabot", "peter", "fugu"
 ]
 
 module.exports = (robot) ->
