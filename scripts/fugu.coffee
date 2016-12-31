@@ -9,6 +9,7 @@
 #   :fugu: :sushi: - eat fugu's sushi
 #   :fugu: :nabe: - eat fugu nabe
 #   :fugu: :sake: - drink hire-zake
+#   ゆく年 - くる年
 #
 # Author:
 #   jiftech
@@ -40,6 +41,9 @@ module.exports = (robot) ->
   robot.respond /image/i, (res) ->
     fuguImage res, (url) ->
       res.reply url
+
+  robot.hear /^ゆく年$/, (res) ->
+    res.send "くる年"
 
 msgWithEmoji = (msg, emoji) ->
   ":#{emoji}:  #{msg}  :#{emoji}:"
