@@ -25,14 +25,14 @@ wordList = [
 ]
 
 module.exports = (robot) ->
-  # return unless Slack.isSlackAdapter robot
-  slack = new Slack robot
+  return unless Slack.isSlackAdapter robot
+  slack = Slack.getInstance robot
 
   robot.respond /omikuji/i, (res) ->
+    console.log "a"
     newyear = res.random newyearList
 
-    attach = slack.generateAttachment 'danger',
-      fallback: "omikuji"
+    attach = slack.generateAttachment "danger",
       pretext: ":#{newyear}: Happy New Year 2017 :#{newyear}:"
       title: "Omikuji"
 
@@ -54,6 +54,7 @@ module.exports = (robot) ->
     attach.fields = [fortune, luckyFood, luckyWord]
 
     slack.sendAttachment res.envelope.room, [attach]
+
 
 fortuneList = [
   "大吉", "大吉", "大吉", # 15%
