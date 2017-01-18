@@ -45,6 +45,7 @@ module.exports = (robot) ->
 
     attach.fields = [fortune, luckyFood, luckyWord]
 
+    console.log res.envelope.room
     slack.sendAttachment res.envelope.room, [attach]
 
 
