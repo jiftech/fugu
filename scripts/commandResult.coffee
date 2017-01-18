@@ -8,7 +8,7 @@ module.exports = (robot) ->
   return unless Slack.isSlackAdapter robot
   slack = Slack.getInstance robot
 
-  robot.router.post '/slack/command-result/', (req, res) ->
+  robot.router.post '/hubot/slack/command-result/', (req, res) ->
     unless HUBOT_SLACK_NOTIFICATION_ROOM?
       rebot.logger.warning "Please specify \"HUBOT_SLACK_NOTIFICATION_ROOM\" environment!"
       return
@@ -25,13 +25,14 @@ module.exports = (robot) ->
     attach = slack.generateAttachment color,
       title: title
       pretext: comres.replyTo
+      mrkdwn_in: ["fields"]
       fields: [
         title: "command"
-        value: "`#{comres.command}`"
+        value: "\\\`#{comres.command}\\\`"
         short: false
       ,
         title: "directory"
-        value: "`#{comres.directory}`"
+        value: "\\\`#{comres.directory}\\\`"
         short: false
       ,
         title: "hostname"
@@ -52,3 +53,4 @@ module.exports = (robot) ->
       ]
 
     slack.sendAttachment HUBOT_SLACK_NOTIFICATION_ROOM, [attach]
+    res.send "OK"
