@@ -3,11 +3,16 @@
 #
 
 Slack = require 'hubot-slack-enhance'
+HUBOT_SLACK_NOTIFICATION_ROOM = process.env.HUBOT_SLACK_NOTIFICATION_ROOM
 module.exports = (robot) ->
   return unless Slack.isSlackAdapter robot
   slack = Slack.getInstance robot
 
   robot.router.post '/slack/command-result/', (req, res) ->
+    unless HUBOT_SLACK_NOTIFICATION_ROOM?
+      rebot.logger.warning "Please specify \"HUBOT_SLACK_NOTIFICATION_ROOM\" environment!"
+      return
+
     comres = req.body
 
     if comres.result == "OK"
@@ -46,4 +51,4 @@ module.exports = (robot) ->
         short: true
       ]
 
-    slack.sendAttachment res.envelope.room, [attach]
+    slack.sendAttachment HUBOT_SLACK_NOTIFICATION_ROOM, [attach]
