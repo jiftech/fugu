@@ -28,11 +28,11 @@ module.exports = (robot) ->
       mrkdwn_in: ["fields"]
       fields: [
         title: "command"
-        value: "\`#{comres.command}\`"
+        value: "`#{comres.command}`"
         short: false
       ,
         title: "directory"
-        value: "\`#{comres.directory}\`"
+        value: "`#{comres.directory}`"
         short: false
       ,
         title: "hostname"
