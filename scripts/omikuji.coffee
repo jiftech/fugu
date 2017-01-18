@@ -9,10 +9,6 @@
 
 Slack = require 'hubot-slack-enhance'
 
-# newyearList = [
-#   "chicken", "rooster", "bamboo", "congratulations", "sunrise"
-# ]
-
 foodList = [
   ":apple:", ":appleinc:", ":eggplant:", ":one: :mount_fuji: :two: :taka: :three: :eggplant:", ":meat_on_bone:", ":fried_shrimp:",
   ":ramen:", ":ramen: :tiger: :house:", ":nabe:", ":sushi:", ":sake:", ":fugu:", ":partyparrot:", ":rabbit:", ":tea:", ":weed:",
@@ -29,10 +25,7 @@ module.exports = (robot) ->
   slack = Slack.getInstance robot
 
   robot.respond /omikuji/i, (res) ->
-    newyear = res.random newyearList
-
     attach = slack.generateAttachment "danger",
-      # pretext: ":#{newyear}: Happy New Year 2017 :#{newyear}:"
       title: "Omikuji"
 
     fortune =
